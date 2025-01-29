@@ -1,0 +1,14 @@
+@import './../../public/fonts/font.css';
+@import "tailwindcss";
+@source "../views";
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+body{
+
+    font-family: IRANYekanX, sans-serif;
+}
+
+.nav-active {
+    @apply bg-teal-700 font-bold text-gray-200 ;
+}
+
