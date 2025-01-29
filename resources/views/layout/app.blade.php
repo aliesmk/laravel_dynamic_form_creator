@@ -28,8 +28,8 @@
                         request()->routeIs('form.*')
                         )?'dark:nav-active-dark nav-active':''
                     }}"
-                   href="{{route('form.index')}}">
-                    <span class="material-icons">{{__('messages.Forms')}}</span>
+                       href="{{route('form.index')}}">
+                        <span class="material-icons">{{__('messages.Forms')}}</span>
 
                     </a>
                 </li>
@@ -78,7 +78,8 @@
                            class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600"
                            role="menuitem">
                             <svg width="24" height="24px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"
-                                 xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--twemoji"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                                 class="iconify iconify--twemoji"
                                  preserveAspectRatio="xMidYMid meet">
                                 <path fill="#00247D"
                                       d="M0 9.059V13h5.628zM4.664 31H13v-5.837zM23 25.164V31h8.335zM0 23v3.941L5.63 23zM31.337 5H23v5.837zM36 26.942V23h-5.631zM36 13V9.059L30.371 13zM13 5H4.664L13 10.837z"></path>
@@ -92,7 +93,9 @@
                         <a href="{{ url()->current() }}?lang=fa"
                            class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600"
                            role="menuitem">
-                            <svg width="24px" height="24px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--twemoji" preserveAspectRatio="xMidYMid meet">
+                            <svg width="24px" height="24px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                                 class="iconify iconify--twemoji" preserveAspectRatio="xMidYMid meet">
 
                                 <path fill="#DA0001" d="M0 27a4 4 0 0 0 4 4h28a4 4 0 0 0 4-4v-4H0v4z">
 
@@ -112,11 +115,13 @@
 
                                 <g fill="#BE1931">
 
-                                    <path d="M19.465 14.969c.957.49 3.038 2.953.798 5.731c1.391-.308 3.162-4.408-.798-5.731zm-2.937 0c-3.959 1.323-2.189 5.423-.798 5.731c-2.24-2.778-.159-5.241.798-5.731zm1.453-.143c.04.197 1.101.436.974-.573c-.168.408-.654.396-.968.207c-.432.241-.835.182-.988-.227c-.148.754.587.975.982.593z">
+                                    <path
+                                        d="M19.465 14.969c.957.49 3.038 2.953.798 5.731c1.391-.308 3.162-4.408-.798-5.731zm-2.937 0c-3.959 1.323-2.189 5.423-.798 5.731c-2.24-2.778-.159-5.241.798-5.731zm1.453-.143c.04.197 1.101.436.974-.573c-.168.408-.654.396-.968.207c-.432.241-.835.182-.988-.227c-.148.754.587.975.982.593z">
 
                                     </path>
 
-                                    <path d="M20.538 17.904c-.015-1.248-.677-2.352-1.329-2.799c.43.527 1.752 3.436-.785 5.351l.047-5.097l-.475-.418l-.475.398l.08 5.146l-.018-.015c-2.563-1.914-1.233-4.837-.802-5.365c-.652.447-1.315 1.551-1.329 2.799c-.013 1.071.477 2.243 1.834 3.205a6.375 6.375 0 0 1-1.678.201c.464.253 1.34.192 2.007.131l.001.068l.398.437l.4-.455v-.052c.672.062 1.567.129 2.039-.128a6.302 6.302 0 0 1-1.732-.213c1.344-.961 1.83-2.127 1.817-3.194z">
+                                    <path
+                                        d="M20.538 17.904c-.015-1.248-.677-2.352-1.329-2.799c.43.527 1.752 3.436-.785 5.351l.047-5.097l-.475-.418l-.475.398l.08 5.146l-.018-.015c-2.563-1.914-1.233-4.837-.802-5.365c-.652.447-1.315 1.551-1.329 2.799c-.013 1.071.477 2.243 1.834 3.205a6.375 6.375 0 0 1-1.678.201c.464.253 1.34.192 2.007.131l.001.068l.398.437l.4-.455v-.052c.672.062 1.567.129 2.039-.128a6.302 6.302 0 0 1-1.732-.213c1.344-.961 1.83-2.127 1.817-3.194z">
 
                                     </path>
 
@@ -153,7 +158,8 @@
 
         <div class="mt-4">
             @if($errors->any())
-                <div class="bg-rose-500 text-white p-3 rounded-md shadow-md">
+                <div class="bg-red-500 text-white p-3 rounded-md shadow-md">
+
 
                     {{ implode('', $errors->all(':message')) }}
 
@@ -165,6 +171,7 @@
 </div>
 
 <footer class="bg-gray-200 dark:bg-gray-800 footer mt-auto py-3 px-3 md:mr-64">
+
     <div class="container rtl:space-x-reverse text-sm text-gray-500 dark:text-gray-400">
         <span class="text-sm text-gray-500 dark:text-gray-400">تمامی حقوق برای گروه <span class="text-teal-500"></span> محفوظ است. نسخه {{config('dynamic_form.app_version')}}</span>
     </div>
@@ -215,6 +222,18 @@
         if (!languageDropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
             dropdownMenu.classList.add('hidden');
         }
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        @if (session('message'))
+        Swal.fire({
+            icon: '{{ session('icon', 'info') }}',
+            title: '{{ session('title', 'پیام') }}',
+            text: '{{ session('message') }}',
+            confirmButtonText: 'باشه'
+        });
+        @endif
     });
 </script>
 

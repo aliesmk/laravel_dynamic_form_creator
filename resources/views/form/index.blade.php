@@ -110,7 +110,7 @@
                         <td class="py-2 px-4 border-b text-sm text-gray-600 dark:text-gray-300">{{ $form->final ? __('messages.published') : __('messages.draft') }}</td>
                         <td class="py-2 px-4 mb-1 border-b text-sm text-gray-600 dark:text-gray-300">{{ $form->archive ? __('messages.yes') : __('messages.no') }}</td>
                         <td class="py-2 px-4 mb-1 border-b text-sm text-gray-600 dark:text-gray-300">
-                            <form class="inline-flex" action="{{ route('form.final', $form->id) }}" method="POST" enctype="multipart/form-data">
+                            <form class="inline-flex" action="#" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @if(!$form->final)
                                     <button type="submit" name="final" value="true"
@@ -125,20 +125,20 @@
                                     </div>
                                 @endif
                             </form>
-                            <a href="{{ route('form.edit', $form->id) }}"
+                            <a href="#"
                                class="inline-flex mx-1 mb-1 items-center px-2 py-1 text-sm text-white bg-yellow-500 rounded hover:bg-yellow-600">{{ __('messages.edit') }}</a>
-                            <a href="{{ route('form.generate', $form->id) }}"
+                            <a href="#"
                                class="inline-flex mx-1 mb-1 items-center px-2 py-1 text-sm text-white bg-teal-500 rounded hover:bg-teal-600">{{ __('messages.view') }}</a>
-                            <a href="{{ route('submission.users', $form->id) }}"
+                            <a href="#"
                                class="inline-flex mx-1 items-center px-2 py-1 text-sm text-white bg-emerald-400 rounded hover:bg-emerald-500">{{ __('messages.users') }}</a>
-                            <form class="inline-flex" action="{{ route('form.replicate', $form->id) }}" method="POST">
+                            <form class="inline-flex" action="#" method="POST">
                                 @csrf
                                 <button type="submit"
                                         class="inline-flex mx-1 items-center px-2 py-1 text-sm text-white rounded hover:bg-gray-200">
                                     <i class="ph ph-copy text-lg text-gray-400"></i>
                                 </button>
                             </form>
-                            <form class="inline-flex" action="{{ route('form.destroy', $form->id) }}" method="POST">
+                            <form class="inline-flex" action="#" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit"
