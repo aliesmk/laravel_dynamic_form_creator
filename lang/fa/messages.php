@@ -29,6 +29,9 @@ return [
     'yes' => 'بله',
     'no' => 'خیر',
     'language' => 'زبان',
+    'form_created' => 'فرم ایجاد شد',
+    'form_updated' => 'فرم بروزرسانی شد',
+    'form_deleted' => 'فرم حذف شد',
 
 ];
 

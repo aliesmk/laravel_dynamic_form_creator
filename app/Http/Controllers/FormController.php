@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePosRequest;
 use App\Models\Form;
 use Illuminate\Http\Request;
 
@@ -52,9 +53,17 @@ class FormController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StorePosRequest  $request)
     {
-        //
+        Form::create(['name' => $request->name,
+            'description' => $request->description]);
+
+
+        return redirect()->route('form.index')->with([
+            'message' => __('messages.form_created'), // Use translation here
+            'icon' => 'success',
+            'title' => ''
+        ]);
     }
 
     /**

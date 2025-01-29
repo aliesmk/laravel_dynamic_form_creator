@@ -29,6 +29,9 @@ return [
     'yes' => 'Yes',
     'no' => 'No',
     'language' => 'language',
+    'form_created' => 'form_created',
+    'form_updated' => 'form_updated',
+    'form_deleted' => 'form_deleted',
 ];
 
 

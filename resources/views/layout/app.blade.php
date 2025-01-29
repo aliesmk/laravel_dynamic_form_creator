@@ -152,6 +152,13 @@
         </header>
 
         <div class="mt-4">
+            @if($errors->any())
+                <div class="bg-rose-500 text-white p-3 rounded-md shadow-md">
+
+                    {{ implode('', $errors->all(':message')) }}
+
+                </div>
+            @endif
             @yield('content')
         </div>
     </main>
