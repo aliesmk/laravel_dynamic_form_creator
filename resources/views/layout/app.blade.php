@@ -9,47 +9,36 @@
 </head>
 <body class="{{ app()->getLocale() === 'fa' ? 'rtl' : 'ltr' }} bg-gray-100 dark:bg-gray-900 antialiased">
 <div class="flex">
-    <aside class="w-64 bg-white dark:bg-gray-800  border-r  border-gray-200 dark:border-gray-700 rounded-md mt-7">
+    <aside class="w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 rounded-md mt-7" id="sidebar">
         <div class="p-4">
             <h1 class="text-xl font-bold text-gray-800 dark:text-gray-200">Dashboard</h1>
         </div>
         <nav class="mt-6">
             <ul class="space-y-2">
                 <li>
-                    <a href="/"
-                       class="flex items-center p-2 text-gray-900 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 rounded">
+                    <a href="/" class="flex items-center p-2 text-gray-900 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 rounded">
                         <span class="material-icons">{{ __('messages.Dashboard') }}</span>
                     </a>
                 </li>
                 <li class="mt-4">
-                    <a class="flex items-center p-2 text-gray-900 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 rounded
-                    {{
-                        (
-                        request()->routeIs('form.*')
-                        )?'dark:nav-active-dark nav-active':''
-                    }}"
-                       href="{{route('form.index')}}">
-                        <span class="material-icons">{{__('messages.Forms')}}</span>
-
+                    <a class="flex items-center p-2 text-gray-900 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 rounded {{ request()->routeIs('form.*') ? 'dark:nav-active-dark nav-active' : '' }}" href="{{ route('form.index') }}">
+                        <span class="material-icons">{{ __('messages.Forms') }}</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#"
-                       class="flex items-center p-2 text-gray-900 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 rounded">
+                    <a href="#" class="flex items-center p-2 text-gray-900 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 rounded">
                         <span class="material-icons">settings</span>
                         <span class="ml-3">Settings</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#"
-                       class="flex items-center p-2 text-gray-900 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 rounded">
+                    <a href="#" class="flex items-center p-2 text-gray-900 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 rounded">
                         <span class="material-icons">bar_chart</span>
                         <span class="ml-3">Reports</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#"
-                       class="flex items-center p-2 text-gray-900 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 rounded">
+                    <a href="#" class="flex items-center p-2 text-gray-900 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 rounded">
                         <span class="material-icons">logout</span>
                         <span class="ml-3">Logout</span>
                     </a>
@@ -81,6 +70,9 @@
                         {{ __('messages.language') }}
                     </button>
                 </div>
+                <button id="toggleSidebar" class="md:hidden p-2 text-gray-900 dark:text-gray-100">
+                    <span class="material-icons">menu</span>
+                </button>
 
                 <div id="dropdown-menu"
                      class="hidden origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 focus:outline-none z-10"
@@ -235,6 +227,11 @@
         }
     });
 </script>
-
+<script>
+    document.getElementById('toggleSidebar').addEventListener('click', function() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('active');
+    });
+</script>
 </body>
 </html>

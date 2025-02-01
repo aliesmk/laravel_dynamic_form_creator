@@ -2,14 +2,14 @@
 
 @section('content')
     <div class="container mx-auto p-6 dark:bg-gray-800 dark:text-white">
-        <div class="flex justify-between bg-white dark:bg-gray-700 p-4 m-16 mb-6 rounded-md shadow-md border border-gray-300 dark:border-gray-600">
+        <div class="flex flex-col md:flex-row justify-between bg-white dark:bg-gray-700 p-4 m-4 rounded-md shadow-md border border-gray-300 dark:border-gray-600">
             <h1 class="text-2xl font-bold text-gray-800 dark:text-gray-200">{{ __('messages.create_form') }}</h1>
             <a onclick="window.history.back();"
-               class="btn add-option bg-gray-600 text-white px-2 py-1 cursor-pointer rounded hover:bg-gray-400 dark:bg-gray-500 dark:hover:bg-gray-400">{{ __('messages.back') }}</a>
+               class="btn add-option bg-gray-600 text-white px-2 py-1 cursor-pointer rounded hover:bg-gray-400 dark:bg-gray-500 dark:hover:bg-gray-400 mt-2 md:mt-0">{{ __('messages.back') }}</a>
         </div>
 
         <form action="{{ route('form.store') }}" method="POST"
-              class="mb-6 m-16 mt-6 bg-white dark:bg-gray-700 p-4 rounded-md shadow-md border border-gray-300 dark:border-gray-600" enctype="multipart/form-data">
+              class="mb-6 bg-white dark:bg-gray-700 p-4 rounded-md shadow-md border border-gray-300 dark:border-gray-600 m-4" enctype="multipart/form-data">
             @csrf
             @method('POST')
             <div class="mb-4">
@@ -29,7 +29,7 @@
                 <h2 class="text-lg font-semibold mb-2 text-gray-800 dark:text-gray-200">{{ __('messages.fields') }}</h2>
                 <div id="fields-container">
                     @foreach ($form_fields??[] as $field)
-                        <div class="field-item mb-14 border rounded p-4 bg-gray-200 dark:bg-gray-800">
+                        <div class="field-item mb-4 border rounded p-4 bg-gray-200 dark:bg-gray-800">
                             <button
                                 class="remove-field bg-rose-200 p-2 text-rose-600 mb-2 rounded hover:bg-rose-400 dark:bg-rose-600 dark:text-white">
                                 x
@@ -88,7 +88,7 @@
                                     <div class="options-container">
                                         <select id="option_select{{ $loop->index }}" name="fields[{{ $loop->index }}][options]"
                                                 data-loop-index="{{ $loop->index }}"
-                                                class=" block w-full rounded-md border-gray-500 bg-teal-500 text-gray-900 shadow-sm
+                                                class="block w-full rounded-md border-gray-500 bg-teal-500 text-gray-900 shadow-sm
                                                     focus:border-teal-500 focus:ring-teal-500 sm:text-sm mb-3 p-2 dark:bg-gray-600 dark:border-gray-500 dark:text-gray-200"
                                                 onfocus="this.classList.remove('bg-teal-500');
                                                     this.classList.add('bg-gray-100');this.classList.remove('text-gray-100');
@@ -129,10 +129,7 @@
 
                                 @endif
                             @else
-                                <div class="options-container">
-
-                                </div>
-
+                                <div class="options-container"></div>
                             @endif
 
                             <div class="flex items-center mb-4">
@@ -196,9 +193,7 @@
                 const fieldIndex = fieldsContainer.children.length;
                 const newField = `
                 <div class="field-item mb-9 border rounded p-4 bg-gray-200 dark:bg-gray-800">
-   <button class="remove-field p-2 bg-rose-200 text-rose-600 mb-2 rounded hover:bg-rose-400 dark:bg-rose-600 dark:text-white">
-                                x
-                            </button>
+                    <button class="remove-field p-2 bg-rose-200 text-rose-600 mb-2 rounded hover:bg-rose-400 dark:bg-rose-600 dark:text-white">x</button>
                     <div class="flex flex-col mb-3 mt-10">
                         <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{ __('messages.field_name') }}</label>
                         <input type="text" name="fields[${fieldIndex}][label]"
@@ -227,15 +222,14 @@
                 <div class="flex items-center mb-4">
                     <input id="required-checkbox" type="checkbox" value="" class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 rounded focus:ring-teal-500 dark:bg-gray-600 dark:border-gray-500">
                     <label for="required-checkbox" class="ml-2 mr-2 text-sm font-medium text-gray-700 dark:text-gray-300">{{ __('messages.required') }}?</label>
-          </div>
-          <!-- Options -->
-          <div class="options-container hidden">
-              <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{ __('messages.options') }}</label>
-              <div class="options-list space-y-2"></div>
-              <button type="button" class="add-option bg-teal-500 text-white px-2 py-1 mt-4 mb-4 rounded hover:bg-teal-600 dark:bg-teal-600 dark:hover:bg-teal-500">{{ __('messages.add_option') }}</button>
-          </div>
-
-      </div>`;
+                    </div>
+                    <!-- Options -->
+                    <div class="options-container hidden">
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{ __('messages.options') }}</label>
+                        <div class="options-list space-y-2"></div>
+                        <button type="button" class="add-option bg-teal-500 text-white px-2 py-1 mt-4 mb-4 rounded hover:bg-teal-600 dark:bg-teal-600 dark:hover:bg-teal-500">{{ __('messages.add_option') }}</button>
+                    </div>
+                </div>`;
                 fieldsContainer.insertAdjacentHTML('beforeend', newField);
             });
 
@@ -285,7 +279,7 @@
                     if (e.target.value == 'Form' || e.target.value == 'Form Select') {
                         const optionsContainer = e.target.closest('.field-item').querySelector('.options-container');
 
-                        if (optionsContainer){
+                        if (optionsContainer) {
                             optionsContainer.classList.add('hidden');
                         }
 
@@ -331,7 +325,7 @@
                         container.appendChild(newSelect);
                     } else {
                         console.log(e.target.classList.contains('type-field-select'))
-                        if( e.target.classList.contains('type-field-select')) {
+                        if (e.target.classList.contains('type-field-select')) {
                             console.log(e.target.value)
                             const isOptional = @json($fieldTypes).
                             find(ft => ft.name === e.target.value)?.is_optional || false;

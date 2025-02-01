@@ -12,3 +12,21 @@ body{
     @apply bg-teal-700 font-bold text-gray-200 ;
 }
 
+#sidebar {
+    transition: transform 0.3s ease;
+}
+
+/* Hide sidebar by default on small screens */
+@media (max-width: 768px) {
+    #sidebar {
+        transform: translateX(-100%); /* Hide sidebar */
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        z-index: 1000;
+    }
+    #sidebar.active {
+        transform: translateX(0); /* Show sidebar */
+    }
+}
