@@ -32,6 +32,21 @@ return [
     'form_created' => 'فرم ایجاد شد',
     'form_updated' => 'فرم بروزرسانی شد',
     'form_deleted' => 'فرم حذف شد',
+    "edit_form" => "ویرایش فرم",
+    "back" => "بازگشت",
+    "fields" => "فیلد ها",
+    "field_name" => "نام فیلد",
+    "field_key" => "کد فیلد",
+    "tooltip" => "توضیحات",
+    "sequence" => "اولویت",
+    "field_type" => "نوع فیلد",
+    "required" => "اجباری ؟",
+    "options" => "مقادیر",
+    "add_field" => "اضافه کردن فیلد",
+    "save" => "ذخیره",
+    "add_option" => "اضافه کردن مقدار",
+    "form_create_success" => "فرم ایجاد شد",
+    "status" => "وضعیت",
 
 ];
 

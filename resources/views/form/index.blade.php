@@ -2,35 +2,16 @@
 
 @section('content')
     <div class="container mx-auto p-4">
-        <h1 class="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-200">{{ __('messages.form_management') }}</h1>
-
-        <!-- Create Field Type Form -->
-        <form action="{{ route('form.store') }}" method="POST" enctype="multipart/form-data"
-              class="mb-6 bg-white dark:bg-gray-800 p-4 rounded-md shadow-md border border-gray-300 dark:border-gray-600">
-            @csrf
-            <div class="mb-4">
-                <label for="name" class="block text-sm text-gray-700 dark:text-gray-300">{{ __('messages.name') }}</label>
-                <input type="text"
-                       class="mt-1 block w-full px-4 py-2 border-gray-300 bg-gray-100 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
-                       id="name" name="name" required>
-            </div>
-            <div class="mb-4">
-                <label for="description" class="block text-sm text-gray-700 dark:text-gray-300">{{ __('messages.description') }}</label>
-                <textarea
-                    class="mt-1 block w-full px-4 py-2 border-gray-300 bg-gray-100 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
-                    id="description" name="description"></textarea>
-            </div>
-
-            <button type="submit"
-                    class="inline-flex items-center px-2 py-1 bg-teal-500 border border-transparent rounded-md shadow-sm text-white hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
-                {{ __('messages.create_form') }}
-            </button>
-        </form>
 
         <hr class="my-6 border-gray-300 dark:border-gray-600">
 
         <h2 class="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-200">{{ __('messages.forms') }}</h2>
-
+        <a href="{{route('form.create')}}">
+            <button class="inline-flex mx-2 items-center px-2 py-1 text-sm text-white bg-teal-500 rounded hover:bg-teal-700">
+                {{ __('messages.create_form') }}
+                <i class="ph ph-check-circle text-lime-500"></i>
+            </button>
+        </a>
         <form action="{{ route('form.index') }}" method="GET" class="mt-6">
             <div class="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 p-3 mb-2 rounded shadow min-w-full">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-2 mb-4">
@@ -89,7 +70,7 @@
                     <th class="py-2 px-4 text-start text-sm text-gray-700 dark:text-gray-300">{{ __('messages.name') }}</th>
                     <th class="py-2 px-4 text-start text-sm text-gray-700 dark:text-gray-300">{{ __('messages.description') }}</th>
                     <th class="py-2 px-4 text-start text-sm text-gray-700 dark:text-gray-300">{{ __('messages.status') }}</th>
-                    <th class="py-2 px-4 text-start text-sm text-gray-700 dark:text-gray-300">{{ __('messages.archive') }}</th>
+                    <th class="py-2 px-4 text-start text-sm text-gray-700 dark:text-gray-300">{{ __('messages.archived') }}</th>
                     <th class="py-2 px-4 text-start text-sm text-gray-700 dark:text-gray-300">{{ __('messages.actions') }}</th>
                 </tr>
                 </thead>
@@ -123,7 +104,7 @@
                                     </div>
                                 @endif
                             </form>
-                            <a href="#"
+                            <a href="{{route('form.edit', $form->id)}}"
                                class="inline-flex mx-1 mb-1 items-center px-2 py-1 text-sm text-white bg-yellow-500 rounded hover:bg-yellow-600">{{ __('messages.edit') }}</a>
                             <a href="#"
                                class="inline-flex mx-1 mb-1 items-center px-2 py-1 text-sm text-white bg-teal-500 rounded hover:bg-teal-600">{{ __('messages.view') }}</a>

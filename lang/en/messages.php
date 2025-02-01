@@ -32,6 +32,21 @@ return [
     'form_created' => 'form_created',
     'form_updated' => 'form_updated',
     'form_deleted' => 'form_deleted',
+    "edit_form" => "edit_form",
+    "back" => "back",
+    "fields" => "fields",
+    "field_name" => "field_name",
+    "field_key" => "field_key",
+    "tooltip" => "tooltip",
+    "sequence" => "sequence",
+    "field_type" => "field_type",
+    "required" => "required",
+    "options" => "options",
+    "add_field" => "add_field",
+    "save" => "save",
+    "add_option" => "add_option",
+    "form_create_success" => "form_create_success",
+    "status" => "status",
 ];
 
 

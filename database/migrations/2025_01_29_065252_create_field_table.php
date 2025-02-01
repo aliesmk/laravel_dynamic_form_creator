@@ -18,9 +18,11 @@ return new class extends Migration
             $table->string('key');
             $table->json('options')->nullable();
             $table->string('placeholder')->nullable();
+            $table->string('tooltip')->nullable();
             $table->boolean('required')->default(false);
             $table->foreignId('field_type_id')->constrained('field_type')->onDelete('no action');
             $table->integer('sequence')->default(1);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
