@@ -58,9 +58,21 @@
         </nav>
     </aside>
 
-    <main class="flex-1 p-6 h-screen">
+    <main class="flex-1 p-6 h-screen overflow-x-hidden overflow-y-scroll">
         <header
             class="flex justify-between bg-white dark:bg-gray-800 px-3  border-r  border-gray-200 dark:border-gray-700 rounded-md ">
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    @if (session('message'))
+                    Swal.fire({
+                        icon: '{{ session('icon', 'info') }}',
+                        title: '{{ session('title', 'پیام') }}',
+                        text: '{{ session('message') }}',
+                        confirmButtonText: 'باشه'
+                    });
+                    @endif
+                });
+            </script>
             <div class="relative inline-block text-left">
                 <div>
                     <button id="language-dropdown"
@@ -171,7 +183,6 @@
 </div>
 
 <footer class="bg-gray-200 dark:bg-gray-800 footer mt-auto py-3 px-3 md:mr-64">
-
     <div class="container rtl:space-x-reverse text-sm text-gray-500 dark:text-gray-400">
         <span class="text-sm text-gray-500 dark:text-gray-400">تمامی حقوق برای گروه <span class="text-teal-500"></span> محفوظ است. نسخه {{config('dynamic_form.app_version')}}</span>
     </div>
@@ -222,18 +233,6 @@
         if (!languageDropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
             dropdownMenu.classList.add('hidden');
         }
-    });
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        @if (session('message'))
-        Swal.fire({
-            icon: '{{ session('icon', 'info') }}',
-            title: '{{ session('title', 'پیام') }}',
-            text: '{{ session('message') }}',
-            confirmButtonText: 'باشه'
-        });
-        @endif
     });
 </script>
 

@@ -32,7 +32,7 @@
         <h2 class="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-200">{{ __('messages.forms') }}</h2>
 
         <form action="{{ route('form.index') }}" method="GET" class="mt-6">
-            <div class="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 p-3 mb-2 rounded shadow w-100">
+            <div class="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 p-3 mb-2 rounded shadow min-w-full">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-2 mb-4">
                     <div>
                         <input placeholder="{{ __('messages.search') }}" type="text" value="{{request('search')}}"
@@ -82,16 +82,15 @@
                 {{ __('messages.no_data_to_display') }}
             </div>
         @else
-            <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600">
+            <table class="min-w-full bg-white dark:bg-gray-800 mt-8 rounded-md overflow-auto border-4 border-transparent shadow-sm">
                 <thead>
                 <tr class="bg-gray-100 dark:bg-gray-700">
-                    <th class="py-2 px-4 border-b text-right text-sm text-gray-700 dark:text-gray-300">{{ __('messages.row') }}</th>
-                    <th class="py-2 px-4 border-b text-right text-sm text-gray-700 dark:text-gray-300">{{ __('messages.form_version') }}</th>
-                    <th class="py-2 px-4 border-b text-right text-sm text-gray-700 dark:text-gray-300">{{ __('messages.name') }}</th>
-                    <th class="py-2 px-4 border-b text-right text-sm text-gray-700 dark:text-gray-300">{{ __('messages.description') }}</th>
-                    <th class="py-2 px-4 border-b text-right text-sm text-gray-700 dark:text-gray-300">{{ __('messages.status') }}</th>
-                    <th class="py-2 px-4 border-b text-right text-sm text-gray-700 dark:text-gray-300">{{ __('messages.archive') }}</th>
-                    <th class="py-2 px-4 border-b text-center text-sm text-gray-700 dark:text-gray-300">{{ __('messages.actions') }}</th>
+                    <th class="py-2 px-4 text-start text-sm text-gray-700 dark:text-gray-300">{{ __('messages.row') }}</th>
+                    <th class="py-2 px-4 text-start text-sm text-gray-700 dark:text-gray-300">{{ __('messages.name') }}</th>
+                    <th class="py-2 px-4 text-start text-sm text-gray-700 dark:text-gray-300">{{ __('messages.description') }}</th>
+                    <th class="py-2 px-4 text-start text-sm text-gray-700 dark:text-gray-300">{{ __('messages.status') }}</th>
+                    <th class="py-2 px-4 text-start text-sm text-gray-700 dark:text-gray-300">{{ __('messages.archive') }}</th>
+                    <th class="py-2 px-4 text-start text-sm text-gray-700 dark:text-gray-300">{{ __('messages.actions') }}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -100,7 +99,6 @@
                         <td class="py-2 px-4 border-b text-sm text-gray-600 dark:text-gray-300">
                             {{ ($forms->currentPage() - 1) * $forms->perPage() + $key + 1 }}
                         </td>
-                        <td class="py-2 px-4 border-b text-sm text-gray-600 dark:text-gray-300">{{ __('messages.version', ['code' => $form->code]) }}</td>
                         <td class="overme py-2 px-4 border-b text-sm text-gray-600 dark:text-gray-300">{{ $form->name }}</td>
                         <td class="overme py-2 px-4 border-b text-sm cursor-pointer text-gray-600 dark:text-gray-300">
                             <abbr title="{{ $form->description }}">
@@ -129,15 +127,6 @@
                                class="inline-flex mx-1 mb-1 items-center px-2 py-1 text-sm text-white bg-yellow-500 rounded hover:bg-yellow-600">{{ __('messages.edit') }}</a>
                             <a href="#"
                                class="inline-flex mx-1 mb-1 items-center px-2 py-1 text-sm text-white bg-teal-500 rounded hover:bg-teal-600">{{ __('messages.view') }}</a>
-                            <a href="#"
-                               class="inline-flex mx-1 items-center px-2 py-1 text-sm text-white bg-emerald-400 rounded hover:bg-emerald-500">{{ __('messages.users') }}</a>
-                            <form class="inline-flex" action="#" method="POST">
-                                @csrf
-                                <button type="submit"
-                                        class="inline-flex mx-1 items-center px-2 py-1 text-sm text-white rounded hover:bg-gray-200">
-                                    <i class="ph ph-copy text-lg text-gray-400"></i>
-                                </button>
-                            </form>
                             <form class="inline-flex" action="#" method="POST">
                                 @csrf
                                 @method('DELETE')
