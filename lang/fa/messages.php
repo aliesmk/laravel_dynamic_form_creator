@@ -47,6 +47,11 @@ return [
     "add_option" => "اضافه کردن مقدار",
     "form_create_success" => "فرم ایجاد شد",
     "status" => "وضعیت",
+    "are_you_sure" => "اطمینان دارید ؟",
+    "this_operation_cannot_be_reversed" => "این عمل غیر قابل برگشت است",
+    "yes_delete" => "بله حذف شود",
+    "cancel" => "انصراف",
+    "form_delete_success" => "فرم حذف شد",
 
 ];
 

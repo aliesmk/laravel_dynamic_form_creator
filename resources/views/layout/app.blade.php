@@ -233,5 +233,33 @@
         sidebar.classList.toggle('active');
     });
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const deleteForms = document.querySelectorAll('.delete-form');
+
+        deleteForms.forEach(form => {
+            form.addEventListener('submit', function (event) {
+                // Prevent form submission
+                event.preventDefault();
+
+                Swal.fire({
+                    title: @json(__('messages.are_you_sure')),
+                    text: @json(__('messages.this_operation_cannot_be_reversed')),
+                    icon: 'error',
+                    showCancelButton: true,
+                    confirmButtonColor: '#f43f5e',
+                    cancelButtonColor: '#14b8a6',
+                    confirmButtonText: @json(__('messages.yes_delete')),
+                    cancelButtonText: @json(__('messages.cancel')),
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Submit the form if confirmed
+                        form.submit();
+                    }
+                });
+            });
+        });
+    });
+</script>
 </body>
 </html>
